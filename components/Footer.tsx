@@ -35,7 +35,7 @@ const Footer: React.FC = () => {
             <p><strong>2. Coleta de Dados</strong><br/>Coletamos informações que você nos fornece diretamente, como nome, e-mail e telefone através de nossos formulários de contato. Também coletamos dados técnicos automaticamente, como endereço IP e tipo de navegador, para melhorar a experiência do usuário.</p>
             <p><strong>3. Uso das Informações</strong><br/>Utilizamos seus dados para responder a solicitações de orçamento, melhorar nossos serviços, enviar comunicações de marketing (caso autorizado) e garantir a segurança do site.</p>
             <p><strong>4. Proteção de Dados</strong><br/>Implementamos medidas de segurança técnicas e organizacionais para proteger seus dados contra acesso não autorizado, alteração ou destruição.</p>
-            <p><strong>5. Seus Direitos</strong><br/>Você tem o direito de acessar, corrigir ou solicitar a exclusão de seus dados pessoais. Para exercer esses direitos, entre em contato através do e-mail ola@monkeycreative.agency.</p>
+            <p><strong>5. Seus Direitos</strong><br/>Você tem o direito de acessar, corrigir ou solicitar a exclusão de seus dados pessoais. Para exercer esses direitos, entre em contato através do e-mail ola@mnkcreative.com.</p>
         </div>
     );
 

@@ -6,7 +6,7 @@ const WhatsAppButton: React.FC = () => {
 
     return (
         <a 
-            href="https://wa.me/5549999869543" 
+            href="https://wa.me/5549988639543" 
             target="_blank" 
             rel="noopener noreferrer"
             aria-label="Conversar no WhatsApp"

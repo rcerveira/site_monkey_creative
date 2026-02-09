@@ -28,20 +28,20 @@ const Contact: React.FC = () => {
               Conte-nos seu projeto e retornamos em até 24h. Transformamos sua visão em código de alta performance.
             </p>
             <div className="space-y-4 pt-8">
-              <a href="mailto:ola@monkeycreative.agency" className="flex items-center space-x-4 group w-fit">
+              <a href="mailto:ola@mnkcreative.com" className="flex items-center space-x-4 group w-fit">
                 <div className="bg-black text-white p-3 rounded-none shadow-hard group-hover:bg-gray-800 transition-colors">
                   <span className="material-symbols-outlined">email</span>
                 </div>
-                <span className="text-lg font-bold group-hover:underline">ola@monkeycreative.agency</span>
+                <span className="text-lg font-bold group-hover:underline">ola@mnkcreative.com</span>
               </a>
-              <a href="tel:+5511999999999" className="flex items-center space-x-4 group w-fit">
+              <a href="tel:+5549988639543" className="flex items-center space-x-4 group w-fit">
                 <div className="bg-black text-white p-3 rounded-none shadow-hard group-hover:bg-gray-800 transition-colors">
                   <span className="material-symbols-outlined">phone</span>
                 </div>
-                <span className="text-lg font-bold group-hover:underline">+55 (11) 99999-9999</span>
+                <span className="text-lg font-bold group-hover:underline">+55 (49) 98863-9543</span>
               </a>
               <a 
-                href="https://maps.google.com/?q=Av.+Paulista,+1000+-+São+Paulo,+SP" 
+                href="https://maps.google.com/?q=Chapecó,+SC" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center space-x-4 group w-fit"
@@ -50,7 +50,7 @@ const Contact: React.FC = () => {
                   <span className="material-symbols-outlined">location_on</span>
                 </div>
                 <span className="text-lg font-bold group-hover:underline">
-                  Av. Paulista, 1000 - São Paulo, SP
+                  Chapecó, SC
                 </span>
               </a>
             </div>
