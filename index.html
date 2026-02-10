@@ -3,26 +3,17 @@
 <html lang="pt-BR" class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
     <title>Monkey Creative | Desenvolvimento Web & Performance</title>
     <meta name="description" content="Agência especializada em Websites de Alta Performance, Landing Pages que convertem e Micro SaaS. Design estratégico e código limpo." />
-    <meta name="keywords" content="Desenvolvimento Web, Landing Page, SEO, React, Next.js, Micro SaaS, Performance, Agência Digital" />
     <meta name="author" content="Monkey Creative" />
     <meta name="theme-color" content="#FFDE00" />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://monkeycreative.agency/" />
     <meta property="og:title" content="Monkey Creative | Desenvolvimento Web de Alta Performance" />
-    <meta property="og:description" content="Transformamos sua visão em máquinas de vendas digitais. Sites rápidos, otimizados e prontos para escalar." />
+    <meta property="og:description" content="Transformamos sua visão em máquinas de vendas digitais." />
     <meta property="og:image" content="https://pub-9bd44561011b427d8901eec9c88e98a4.r2.dev/path3.png" />
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://monkeycreative.agency/" />
-    <meta property="twitter:title" content="Monkey Creative | Desenvolvimento Web de Alta Performance" />
-    <meta property="twitter:description" content="Transformamos sua visão em máquinas de vendas digitais. Sites rápidos, otimizados e prontos para escalar." />
-    <meta property="twitter:image" content="https://pub-9bd44561011b427d8901eec9c88e98a4.r2.dev/path3.png" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -118,12 +109,12 @@
       };
     </script>
     <style>
-      /* Base styles */
       body, html {
         overflow-x: hidden;
+        margin: 0;
+        padding: 0;
       }
       
-      /* Only apply custom cursor logic on devices that support hover (desktops) */
       @media (hover: hover) and (pointer: fine) {
         body, html, a, button, input, textarea, select, label, .cursor-pointer, [role="button"] {
           cursor: none !important;
@@ -141,18 +132,10 @@
         -webkit-text-stroke: 1px #ffde00;
         color: transparent;
       }
-      .text-stroke-black {
-        -webkit-text-stroke: 1px #000;
-        color: transparent;
-      }
       .clip-path-slant {
         clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
       }
-      .streetwear-filter {
-        filter: grayscale(100%) contrast(120%);
-      }
       
-      /* Scrollbar */
       ::-webkit-scrollbar {
         width: 10px;
       }
@@ -177,7 +160,6 @@
 </head>
   <body class="bg-background-light dark:bg-background-dark text-gray-900 dark:text-gray-100 font-sans antialiased">
     <div id="root"></div>
-    <!-- Script module entry point para evitar tela branca em deploy -->
     <script type="module" src="./index.tsx"></script>
   </body>
 </html>

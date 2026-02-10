@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef, useState, useContext } from 'react';
 import { CursorContext } from '../context';
 
@@ -6,13 +7,16 @@ const CustomCursor: React.FC = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
   const [isPointer, setIsPointer] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [isMobile, setIsMobile] = useState(true);
 
   // Use refs for position to avoid re-renders
   const mousePosition = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
-    // Only enable custom cursor logic on devices with fine pointers (mouse)
+    // Check if device supports hover and has a fine pointer (desktop with mouse)
     const mediaQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
+    setIsMobile(!mediaQuery.matches);
+
     if (!mediaQuery.matches) return;
 
     const onMouseMove = (e: MouseEvent) => {
@@ -26,9 +30,9 @@ const CustomCursor: React.FC = () => {
       if (!isVisible) setIsVisible(true);
 
       const target = e.target as HTMLElement;
+      if (!target) return;
       
       // Determine clickability
-      // Optimization: This check happens often, keep it efficient
       const isClickable = 
         target.tagName === 'A' ||
         target.tagName === 'BUTTON' ||
@@ -57,8 +61,8 @@ const CustomCursor: React.FC = () => {
     };
   }, [isVisible]);
 
-  // Don't render anything if not visible (e.g. mobile or mouse out of window)
-  if (!isVisible) return null;
+  // Don't render anything if mobile or not visible
+  if (isMobile || !isVisible) return null;
 
   const isHoveringLink = isPointer || cursorType === 'button' || cursorType === 'external';
 
@@ -69,7 +73,6 @@ const CustomCursor: React.FC = () => {
       style={{
           width: '32px',
           height: '32px',
-          // Initial position off-screen until first move
           transform: 'translate3d(-100px, -100px, 0)' 
       }}
     >
@@ -81,7 +84,6 @@ const CustomCursor: React.FC = () => {
             isHoveringLink ? 'scale-125' : 'scale-100'
           }`}
         >
-          {/* Simple Yellow Arrow Cursor */}
           <path 
             d="M3 3L10.5 20.5L13.5 13.5L20.5 10.5L3 3Z" 
             fill="#FFDE00" 
@@ -91,7 +93,6 @@ const CustomCursor: React.FC = () => {
           />
         </svg>
 
-        {/* Text Tooltip (if needed) */}
         {cursorType === 'text' && (
            <div className="absolute top-6 left-6 bg-black text-white text-[10px] font-bold uppercase px-2 py-1 whitespace-nowrap border border-white rounded-none animate-slide-up shadow-md">
              Ver

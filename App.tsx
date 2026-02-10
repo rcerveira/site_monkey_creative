@@ -17,12 +17,23 @@ const App: React.FC = () => {
   const [cursorType, setCursorType] = useState<CursorType>('default');
   const [cursorText, setCursorText] = useState('');
 
-  // Check for dark mode preference
+  // Check for dark mode preference with error handling for mobile/private browsing
   useEffect(() => {
-    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    try {
+      const isDark = localStorage.getItem('color-theme') === 'dark' || 
+                    (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      
+      if (isDark) {
+          document.documentElement.classList.add('dark');
+      } else {
+          document.documentElement.classList.remove('dark');
+      }
+    } catch (e) {
+      console.warn('LocalStorage not accessible:', e);
+      // Fallback to media query if storage fails
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
         document.documentElement.classList.add('dark');
-    } else {
-        document.documentElement.classList.remove('dark');
+      }
     }
   }, []);
 
