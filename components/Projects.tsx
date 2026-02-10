@@ -81,7 +81,7 @@ const Projects: React.FC = () => {
 
   return (
     <>
-      <section className="cv-auto py-20 bg-surface-dark relative z-10 border-b-4 border-primary overflow-hidden">
+      <section className="py-20 bg-surface-dark relative z-10 border-b-4 border-primary overflow-hidden">
         <div 
           className="absolute inset-0 opacity-5 pointer-events-none" 
           style={{ backgroundImage: 'radial-gradient(#FFDE00 1px, transparent 1px)', backgroundSize: '24px 24px' }}
@@ -114,7 +114,7 @@ const Projects: React.FC = () => {
         </div>
       </section>
 
-      <section className="cv-auto py-24 bg-background-light dark:bg-background-dark z-10 relative" id="projects">
+      <section className="py-24 bg-background-light dark:bg-background-dark z-10 relative" id="projects">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="font-display text-5xl md:text-7xl uppercase text-gray-900 dark:text-white mb-4">
