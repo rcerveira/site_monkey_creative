@@ -46,7 +46,7 @@ const Navbar: React.FC = () => {
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               type="button"
-              className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-black rounded-lg md:hidden focus:outline-none border-2 border-transparent"
+              className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-primary rounded-lg md:hidden focus:outline-none border-2 border-transparent"
             >
               <span className="sr-only">Open main menu</span>
               <span className="material-symbols-outlined">menu</span>
