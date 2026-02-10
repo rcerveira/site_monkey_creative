@@ -21,8 +21,8 @@ const Hero: React.FC = () => {
 
   return (
     <section className={`relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden bg-surface-light dark:bg-background-dark z-10 transition-transform ${isSlipping ? 'animate-slip' : ''}`}>
-      <div className="absolute right-0 top-0 w-[55vw] h-full bg-black/5 dark:bg-white/5 clip-path-slant z-0 pointer-events-none"></div>
-      <div className="absolute -left-20 top-40 w-96 h-96 bg-primary rounded-full blur-[180px] opacity-10 animate-pulse"></div>
+      <div className="absolute right-0 top-0 w-[55vw] h-full bg-black/5 dark:bg-white/5 clip-path-slant z-0 pointer-events-none hidden lg:block"></div>
+      <div className="absolute -left-20 top-40 w-96 h-96 bg-primary rounded-full blur-[180px] opacity-10 hidden lg:block"></div>
       
       {/* Easter Egg Floating Banana */}
       {isSlipping && (
@@ -110,8 +110,8 @@ const Hero: React.FC = () => {
               <div 
                 className="absolute inset-0 bg-white dark:bg-surface-dark -rotate-3 border-4 border-black dark:border-gray-200 shadow-hard z-10 overflow-hidden flex items-center justify-center group"
               >
-                {/* Background Image - Dashboard Placeholder */}
-                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center streetwear-filter opacity-90"></div>
+                {/* Background - Simplified for mobile performance */}
+                <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-black"></div>
                 
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-black/60"></div>

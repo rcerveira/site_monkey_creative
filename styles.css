@@ -41,6 +41,22 @@ html.dark, html.dark body {
   }
 }
 
+@media (max-width: 768px) {
+  .animate-marquee,
+  .animate-marquee-reverse,
+  .animate-bounce,
+  .animate-float,
+  .animate-float-sm,
+  .animate-breathe,
+  .animate-spin-slow,
+  .animate-scrolling-bg,
+  .animate-slip,
+  .animate-slide-out,
+  .animate-slide-up {
+    animation: none !important;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-marquee,
   .animate-marquee-reverse,
