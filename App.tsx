@@ -1,16 +1,17 @@
+
 import React, { useState, useEffect } from 'react';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Services from './components/Services';
-import Process from './components/Process';
-import Projects from './components/Projects';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import CustomCursor from './components/CustomCursor';
-import WhatsAppButton from './components/WhatsAppButton';
-import LgpdBanner from './components/LgpdBanner';
-import { CursorType } from './types';
-import { CursorContext } from './context';
+import Navbar from './components/Navbar.tsx';
+import Hero from './components/Hero.tsx';
+import Services from './components/Services.tsx';
+import Process from './components/Process.tsx';
+import Projects from './components/Projects.tsx';
+import Contact from './components/Contact.tsx';
+import Footer from './components/Footer.tsx';
+import CustomCursor from './components/CustomCursor.tsx';
+import WhatsAppButton from './components/WhatsAppButton.tsx';
+import LgpdBanner from './components/LgpdBanner.tsx';
+import { CursorType } from './types.ts';
+import { CursorContext } from './context.ts';
 
 const App: React.FC = () => {
   const [cursorType, setCursorType] = useState<CursorType>('default');

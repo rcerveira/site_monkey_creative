@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
   <head>
@@ -176,5 +177,7 @@
 </head>
   <body class="bg-background-light dark:bg-background-dark text-gray-900 dark:text-gray-100 font-sans antialiased">
     <div id="root"></div>
+    <!-- Script module entry point para evitar tela branca em deploy -->
+    <script type="module" src="./index.tsx"></script>
   </body>
 </html>
