@@ -17,15 +17,28 @@ const Projects: React.FC = () => {
   // Helper to create URL slug from project title
   const createSlug = (text: string) => text.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
 
-  // Handle URL changes and Initial Load (Deep Linking)
-  useEffect(() => {
+  const getProjectFromUrl = () => {
     const params = new URLSearchParams(window.location.search);
     const projectSlug = params.get('projeto');
-    
-    if (projectSlug) {
-      const found = projectsData.find(p => createSlug(p.title) === projectSlug);
-      if (found) setSelectedProject(found);
-    }
+
+    if (!projectSlug) return null;
+    return projectsData.find((project) => createSlug(project.title) === projectSlug) || null;
+  };
+
+  // Handle URL changes and initial load (deep linking)
+  useEffect(() => {
+    const syncFromUrl = () => {
+      setSelectedProject(getProjectFromUrl());
+    };
+
+    syncFromUrl();
+
+    const handlePopState = () => {
+      syncFromUrl();
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
   // Sync Metadata and URL with Selected Project

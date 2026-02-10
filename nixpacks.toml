@@ -1,0 +1,12 @@
+[phases.setup]
+# Use a modern Node version compatible with Vite 6.
+nixPkgs = ["nodejs_20", "npm"]
+
+[phases.install]
+cmds = ["npm install"]
+
+[phases.build]
+cmds = ["npm run build"]
+
+[start]
+cmd = "npm run preview -- --host 0.0.0.0 --port $PORT"

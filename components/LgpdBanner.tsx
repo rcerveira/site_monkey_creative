@@ -6,14 +6,22 @@ const LgpdBanner: React.FC = () => {
   const { buttonCursor, defaultCursor } = useCursor();
 
   useEffect(() => {
-    const hasAccepted = localStorage.getItem('lgpd_accepted');
-    if (!hasAccepted) {
+    try {
+      const hasAccepted = localStorage.getItem('lgpd_accepted');
+      if (!hasAccepted) {
         setAccepted(false);
+      }
+    } catch (e) {
+      setAccepted(false);
     }
   }, []);
 
   const handleAccept = () => {
-    localStorage.setItem('lgpd_accepted', 'true');
+    try {
+      localStorage.setItem('lgpd_accepted', 'true');
+    } catch (e) {
+      // Ignore storage errors and still hide the banner.
+    }
     setAccepted(true);
   };
 

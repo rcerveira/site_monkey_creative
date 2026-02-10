@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState, useContext } from 'react';
 import { CursorContext } from '../context';
 
 const CustomCursor: React.FC = () => {
-  const { cursorType } = useContext(CursorContext);
+  const { cursorType, cursorText } = useContext(CursorContext);
   const cursorRef = useRef<HTMLDivElement>(null);
   const [isPointer, setIsPointer] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
@@ -95,7 +95,7 @@ const CustomCursor: React.FC = () => {
 
         {cursorType === 'text' && (
            <div className="absolute top-6 left-6 bg-black text-white text-[10px] font-bold uppercase px-2 py-1 whitespace-nowrap border border-white rounded-none animate-slide-up shadow-md">
-             Ver
+             {cursorText.trim() || 'Ver'}
            </div>
         )}
     </div>
