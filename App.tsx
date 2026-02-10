@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Navbar from './components/Navbar.tsx';
 import Hero from './components/Hero.tsx';
 import Services from './components/Services.tsx';
@@ -17,29 +17,29 @@ const App: React.FC = () => {
   const [cursorType, setCursorType] = useState<CursorType>('default');
   const [cursorText, setCursorText] = useState('');
 
-  // Check for dark mode preference with error handling for mobile/private browsing
+  // Sincronização persistente do tema
   useEffect(() => {
     try {
-      const isDark = localStorage.getItem('color-theme') === 'dark' || 
-                    (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
-      
-      if (isDark) {
-          document.documentElement.classList.add('dark');
-      } else {
-          document.documentElement.classList.remove('dark');
+      const isDark = document.documentElement.classList.contains('dark');
+      if (!localStorage.getItem('color-theme')) {
+          localStorage.setItem('color-theme', isDark ? 'dark' : 'light');
       }
     } catch (e) {
-      console.warn('LocalStorage not accessible:', e);
-      // Fallback to media query if storage fails
-      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.documentElement.classList.add('dark');
-      }
+      // Ignora erros de storage no mobile
     }
   }, []);
 
+  const contextValue = useMemo(() => ({
+    cursorType, 
+    cursorText, 
+    setCursorType, 
+    setCursorText
+  }), [cursorType, cursorText]);
+
   return (
-    <CursorContext.Provider value={{ cursorType, cursorText, setCursorType, setCursorText }}>
+    <CursorContext.Provider value={contextValue}>
       <div className="relative min-h-screen">
+        {/* Background pattern agora usa CSS nativo via classe index.html */}
         <div className="fixed inset-0 z-0 pointer-events-none bg-banana-pattern opacity-40 animate-scrolling-bg"></div>
         <CustomCursor />
         <Navbar />

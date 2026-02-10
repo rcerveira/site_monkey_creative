@@ -1,30 +1,101 @@
-
 <!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
+<html lang="pt-BR" class="dark scroll-smooth">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-    <title>Monkey Creative | Desenvolvimento Web & Performance</title>
-    <meta name="description" content="Agência especializada em Websites de Alta Performance, Landing Pages que convertem e Micro SaaS. Design estratégico e código limpo." />
-    <meta name="author" content="Monkey Creative" />
-    <meta name="theme-color" content="#FFDE00" />
     
-    <!-- Open Graph / Facebook -->
+    <!-- SEO Principal -->
+    <title>Monkey Creative | Agência de Desenvolvimento Web, SEO & Performance</title>
+    <meta name="description" content="Agência especializada em Sites de Alta Performance, Landing Pages que convertem e Micro SaaS. Transformamos código em receita. Design estratégico e tecnologia de ponta em Chapecó, SC." />
+    <meta name="keywords" content="desenvolvimento web, criação de sites, landing page, alta performance, seo, micro saas, react, next.js, chapecó, agência digital, web design" />
+    <meta name="author" content="Monkey Creative" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://mnkcreative.com" />
+
+    <!-- Open Graph / Facebook / WhatsApp -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Monkey Creative | Desenvolvimento Web de Alta Performance" />
-    <meta property="og:description" content="Transformamos sua visão em máquinas de vendas digitais." />
-    <meta property="og:image" content="https://pub-9bd44561011b427d8901eec9c88e98a4.r2.dev/path3.png" />
+    <meta property="og:url" content="https://mnkcreative.com" />
+    <meta property="og:title" content="Monkey Creative | Desenvolvimento Web & Performance" />
+    <meta property="og:description" content="Construímos produtos digitais que convertem. Websites, Landing Pages e Micro SaaS com foco em SEO e Performance." />
+    <meta property="og:image" content="https://pub-9bd44561011b427d8901eec9c88e98a4.r2.dev/image1.png" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Monkey Creative" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://mnkcreative.com" />
+    <meta property="twitter:title" content="Monkey Creative | Web Experts" />
+    <meta property="twitter:description" content="Agência especializada em Websites de Alta Performance e Landing Pages que convertem." />
+    <meta property="twitter:image" content="https://pub-9bd44561011b427d8901eec9c88e98a4.r2.dev/image1.png" />
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="https://pub-9bd44561011b427d8901eec9c88e98a4.r2.dev/path3.png" />
+    <link rel="apple-touch-icon" href="https://pub-9bd44561011b427d8901eec9c88e98a4.r2.dev/path3.png" />
+    <link rel="shortcut icon" href="https://pub-9bd44561011b427d8901eec9c88e98a4.r2.dev/path3.png" />
+
+    <meta name="theme-color" content="#0f0f0f" />
+
+    <!-- Dados Estruturados (JSON-LD) para Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Monkey Creative",
+      "image": "https://pub-9bd44561011b427d8901eec9c88e98a4.r2.dev/image1.png",
+      "url": "https://mnkcreative.com",
+      "telephone": "+5549988639543",
+      "email": "ola@mnkcreative.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Chapecó",
+        "addressRegion": "SC",
+        "addressCountry": "BR"
+      },
+      "priceRange": "$$",
+      "description": "Agência de desenvolvimento web especializada em Websites, Landing Pages e Micro SaaS focados em performance e conversão.",
+      "sameAs": [
+        "https://instagram.com",
+        "https://linkedin.com",
+        "https://behance.net"
+      ],
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "09:00",
+        "closes": "18:00"
+      }
+    }
+    </script>
+    
+    <!-- Script bloqueante ultrarrápido para evitar flash de cor -->
+    <script>
+      (function() {
+        try {
+          const theme = localStorage.getItem('color-theme') || 'dark';
+          if (theme === 'dark') document.documentElement.classList.add('dark');
+        } catch (e) {}
+      })();
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;600;800&display=swap"
       rel="stylesheet"
+      media="print" 
+      onload="this.media='all'"
     />
     <link
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
       rel="stylesheet"
     />
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -42,9 +113,6 @@
               display: ["Anton", "sans-serif"],
               sans: ["Inter", "sans-serif"],
             },
-            backgroundImage: {
-               'banana-pattern': "url('https://www.transparenttextures.com/patterns/cubes.png')", 
-            },
             boxShadow: {
               hard: "4px 4px 0px 0px rgba(0,0,0,1)",
               "hard-sm": "2px 2px 0px 0px rgba(0,0,0,1)",
@@ -55,7 +123,7 @@
               "float-sm": "float-sm 3s ease-in-out infinite",
               breathe: "breathe 4s ease-in-out infinite",
               "spin-slow": "spin 12s linear infinite",
-              "scrolling-bg": "scrolling-bg 20s linear infinite",
+              "scrolling-bg": "scrolling-bg 40s linear infinite",
               marquee: "marquee 25s linear infinite",
               "marquee-reverse": "marquee-reverse 25s linear infinite",
               slip: "slip 0.6s ease-in-out",
@@ -77,7 +145,7 @@
               },
               "scrolling-bg": {
                 "0%": { backgroundPosition: "0 0" },
-                "100%": { backgroundPosition: "100% 100%" },
+                "100%": { backgroundPosition: "100px 100px" },
               },
               marquee: {
                 "0%": { transform: "translateX(0%)" },
@@ -109,12 +177,30 @@
       };
     </script>
     <style>
+      /* Estilos Críticos - Reduzem o tempo de tela branca */
+      :root {
+        --bg-dark: #0f0f0f;
+        --primary: #FFDE00;
+      }
+      
       body, html {
         overflow-x: hidden;
         margin: 0;
         padding: 0;
+        background-color: #0f0f0f; /* Força fundo preto por padrão no carregamento inicial */
       }
       
+      html.dark, html.dark body {
+        background-color: var(--bg-dark) !important;
+        color: white;
+      }
+
+      /* Padrão de fundo em CSS puro - substitui assets externos que causavam lentidão */
+      .bg-banana-pattern {
+        background-image: radial-gradient(rgba(255, 222, 0, 0.05) 1px, transparent 1px);
+        background-size: 30px 30px;
+      }
+
       @media (hover: hover) and (pointer: fine) {
         body, html, a, button, input, textarea, select, label, .cursor-pointer, [role="button"] {
           cursor: none !important;
@@ -128,13 +214,6 @@
       .dark .text-outline {
         -webkit-text-stroke: 1px white;
       }
-      .text-stroke-primary {
-        -webkit-text-stroke: 1px #ffde00;
-        color: transparent;
-      }
-      .clip-path-slant {
-        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-      }
       
       ::-webkit-scrollbar {
         width: 10px;
@@ -143,22 +222,44 @@
         background: #1e1e1e;
       }
       ::-webkit-scrollbar-thumb {
-        background: #ffde00;
+        background: var(--primary);
         border: 2px solid #1e1e1e;
         border-radius: 4px;
       }
+
+      /* Spinner de carregamento para mobile */
+      #root:empty::before {
+        content: "";
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 40px;
+        height: 40px;
+        margin: -20px 0 0 -20px;
+        border: 3px solid rgba(255, 222, 0, 0.2);
+        border-top-color: var(--primary);
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+      }
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
     </style>
-  <script type="importmap">
+
+    <script type="importmap">
 {
   "imports": {
-    "react/": "https://esm.sh/react@^19.2.4/",
-    "react": "https://esm.sh/react@^19.2.4",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.4/"
+    "react": "https://esm.sh/react@18.3.1",
+    "react-dom": "https://esm.sh/react-dom@18.3.1",
+    "react-dom/client": "https://esm.sh/react-dom@18.3.1/client",
+    "react/jsx-runtime": "https://esm.sh/react@18.3.1/jsx-runtime",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/"
   }
 }
 </script>
 </head>
-  <body class="bg-background-light dark:bg-background-dark text-gray-900 dark:text-gray-100 font-sans antialiased">
+  <body class="bg-background-dark text-gray-900 dark:text-gray-100 font-sans antialiased">
     <div id="root"></div>
     <script type="module" src="./index.tsx"></script>
   </body>

@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { useCursor } from '../hooks';
 import { ProjectData } from '../types';
@@ -6,16 +7,64 @@ import { projectsData } from '../data';
 const Projects: React.FC = () => {
   const { textCursor, buttonCursor, defaultCursor } = useCursor();
   const [selectedProject, setSelectedProject] = useState<ProjectData | null>(null);
+  
+  // Store default meta tags to restore later
+  const [defaultMeta, setDefaultMeta] = useState({
+    title: document.title,
+    description: document.querySelector('meta[name="description"]')?.getAttribute('content') || ''
+  });
 
-  // Lock body scroll when modal is open
+  // Helper to create URL slug from project title
+  const createSlug = (text: string) => text.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
+
+  // Handle URL changes and Initial Load (Deep Linking)
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const projectSlug = params.get('projeto');
+    
+    if (projectSlug) {
+      const found = projectsData.find(p => createSlug(p.title) === projectSlug);
+      if (found) setSelectedProject(found);
+    }
+  }, []);
+
+  // Sync Metadata and URL with Selected Project
   useEffect(() => {
     if (selectedProject) {
+      // 1. Update Document Title
+      document.title = `${selectedProject.title} | Portfólio Monkey Creative`;
+      
+      // 2. Update Meta Description
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) {
+        metaDesc.setAttribute('content', selectedProject.description || `Veja detalhes do projeto ${selectedProject.title} desenvolvido pela Monkey Creative.`);
+      }
+
+      // 3. Update URL without reloading (SEO Friendly query param)
+      const slug = createSlug(selectedProject.title);
+      const newUrl = `${window.location.pathname}?projeto=${slug}`;
+      window.history.pushState({ project: selectedProject.id }, '', newUrl);
+
+      // 4. Lock Body Scroll
       document.body.style.overflow = 'hidden';
+    } else {
+      // Restore defaults
+      document.title = defaultMeta.title;
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.setAttribute('content', defaultMeta.description);
+      
+      // Clean URL
+      if (window.location.search.includes('projeto=')) {
+        window.history.pushState({}, '', window.location.pathname);
+      }
+
+      document.body.style.overflow = 'unset';
     }
+    
     return () => {
       document.body.style.overflow = 'unset';
     };
-  }, [selectedProject]);
+  }, [selectedProject, defaultMeta]);
 
   return (
     <>
@@ -63,10 +112,8 @@ const Projects: React.FC = () => {
             </p>
           </div>
 
-          {/* Scrollable Container Box */}
           <div className="border-y-2 border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 p-4 md:p-8">
             <div className="max-h-[800px] overflow-y-auto pr-2 custom-scrollbar scroll-smooth">
-              {/* Grid Layout used for fixed aspect ratio (better CLS performance) */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {projectsData.map((project, index) => (
                   <button
@@ -77,7 +124,6 @@ const Projects: React.FC = () => {
                     onMouseLeave={defaultCursor}
                     aria-label={`Ver detalhes do projeto ${project.title}`}
                   >
-                    {/* Fixed aspect ratio container to prevent layout shift (CLS optimization) */}
                     <div className="aspect-[4/3] w-full overflow-hidden bg-gray-100 dark:bg-gray-800">
                       <img
                         src={project.image}
@@ -133,16 +179,13 @@ const Projects: React.FC = () => {
           aria-modal="true"
           aria-labelledby="modal-title"
         >
-          {/* Backdrop */}
           <div 
             className="absolute inset-0 bg-black/90 backdrop-blur-sm transition-opacity"
             onClick={() => setSelectedProject(null)}
           ></div>
 
-          {/* Modal Content */}
           <div className="bg-white dark:bg-surface-dark w-full max-w-7xl h-[85vh] md:h-[90vh] relative z-10 flex flex-col lg:flex-row shadow-2xl border-2 border-primary overflow-hidden animate-breathe rounded-sm">
             
-            {/* Close Button */}
             <button 
               className="absolute top-4 right-4 z-50 bg-black text-primary p-2 rounded-full hover:rotate-90 transition-transform duration-300 shadow-hard-white"
               onClick={() => setSelectedProject(null)}
@@ -153,7 +196,6 @@ const Projects: React.FC = () => {
               <span className="material-symbols-outlined text-2xl">close</span>
             </button>
 
-            {/* Left Column: Scrollable Image */}
             <div className="lg:w-2/3 h-1/2 lg:h-full overflow-y-auto custom-scrollbar bg-gray-100 dark:bg-black/50 relative group">
                <img 
                  src={selectedProject.image} 
@@ -163,7 +205,6 @@ const Projects: React.FC = () => {
                />
             </div>
 
-            {/* Right Column: Project Info */}
             <div className="lg:w-1/3 h-1/2 lg:h-full bg-white dark:bg-surface-dark border-t-2 lg:border-t-0 lg:border-l-2 border-black dark:border-gray-700 p-8 flex flex-col overflow-y-auto">
               
               <div className="mb-8">
