@@ -41,8 +41,8 @@ const App: React.FC = () => {
   return (
     <CursorContext.Provider value={contextValue}>
       <div className="relative min-h-screen">
-        {/* Background pattern - hidden on mobile for performance */}
-        <div className="hidden lg:block fixed inset-0 z-0 pointer-events-none bg-banana-pattern opacity-40 animate-scrolling-bg"></div>
+        {/* Background pattern */}
+        <div className="fixed inset-0 z-0 pointer-events-none bg-banana-pattern opacity-40 animate-scrolling-bg"></div>
         <CustomCursor />
         <Navbar />
         <Hero />

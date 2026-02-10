@@ -41,7 +41,7 @@ html.dark, html.dark body {
   }
 }
 
-@media (max-width: 768px), (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: reduce) {
   .animate-marquee,
   .animate-marquee-reverse,
   .animate-bounce,
@@ -54,13 +54,6 @@ html.dark, html.dark body {
   .animate-slide-out,
   .animate-slide-up {
     animation: none !important;
-  }
-  
-  /* Hide decorative blurs on mobile for performance */
-  .blur-\[180px\],
-  .blur-\[100px\],
-  .blur-xl {
-    filter: none !important;
   }
 }
 
