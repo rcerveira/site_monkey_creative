@@ -1,6 +1,6 @@
 [phases.setup]
 # Use a modern Node version compatible with Vite 6.
-nixPkgs = ["nodejs_20"]
+nixPkgs = ["nodejs_24"]
 
 [phases.install]
 cmds = ["npm install"]
