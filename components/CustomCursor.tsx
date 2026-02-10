@@ -15,9 +15,15 @@ const CustomCursor: React.FC = () => {
   useEffect(() => {
     // Check if device supports hover and has a fine pointer (desktop with mouse)
     const mediaQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
+    const root = document.documentElement;
     setIsMobile(!mediaQuery.matches);
 
-    if (!mediaQuery.matches) return;
+    if (!mediaQuery.matches) {
+      root.classList.remove('custom-cursor');
+      return;
+    }
+
+    root.classList.add('custom-cursor');
 
     const onMouseMove = (e: MouseEvent) => {
       mousePosition.current = { x: e.clientX, y: e.clientY };
@@ -58,6 +64,7 @@ const CustomCursor: React.FC = () => {
       window.removeEventListener('mousemove', onMouseMove);
       document.removeEventListener('mouseleave', onMouseLeave);
       document.removeEventListener('mouseenter', onMouseEnter);
+      root.classList.remove('custom-cursor');
     };
   }, [isVisible]);
 

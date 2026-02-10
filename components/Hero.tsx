@@ -20,7 +20,7 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section className={`relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden bg-surface-light dark:bg-background-dark z-10 transition-transform ${isSlipping ? 'animate-slip' : ''}`}>
+    <section className={`cv-auto relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden bg-surface-light dark:bg-background-dark z-10 transition-transform ${isSlipping ? 'animate-slip' : ''}`}>
       <div className="absolute right-0 top-0 w-[55vw] h-full bg-black/5 dark:bg-white/5 clip-path-slant z-0 pointer-events-none"></div>
       <div className="absolute -left-20 top-40 w-96 h-96 bg-primary rounded-full blur-[180px] opacity-10 animate-pulse"></div>
       

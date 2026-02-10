@@ -7,7 +7,7 @@ const Process: React.FC = () => {
 
   return (
     <>
-      <section className="relative bg-primary border-y-4 border-black z-20 overflow-hidden whitespace-nowrap py-6 select-none shadow-hard">
+      <section className="cv-auto relative bg-primary border-y-4 border-black z-20 overflow-hidden whitespace-nowrap py-6 select-none shadow-hard">
         <div className="flex animate-marquee-reverse">
           {[0, 1].map((i) => (
             <div key={i} className="flex items-center shrink-0">
@@ -23,7 +23,7 @@ const Process: React.FC = () => {
       </section>
 
       <section
-        className="py-24 bg-black dark:bg-background-dark relative overflow-hidden z-10 border-y-4 border-primary"
+        className="cv-auto py-24 bg-black dark:bg-background-dark relative overflow-hidden z-10 border-y-4 border-primary"
         id="process"
       >
         <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none overflow-hidden">

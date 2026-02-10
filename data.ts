@@ -54,7 +54,7 @@ export const projectsData: ProjectData[] = [
     category: 'Catálogo Online',
     image: 'https://pub-9bd44561011b427d8901eec9c88e98a4.r2.dev/projetos/aluguemaq.webp',
     hasHoverState: true,
-    url: 'https://aluguemaq.com.br',
+    url: 'https://aluguemaq.net',
     description: 'Site institucional robusto focado na apresentação de catálogo de produtos para locação. Implementamos um sistema de reserva online intuitivo que facilita a jornada do cliente. A arquitetura de dados utiliza SQLite para garantir agilidade nas consultas de disponibilidade e leveza na operação do catálogo.',
     technologies: ['SQLite', 'Next.js', 'Tailwind', 'Reserva Online', 'SEO']
   },
@@ -74,6 +74,7 @@ export const projectsData: ProjectData[] = [
     category: 'SaaS / CRM Vertical',
     image: 'https://pub-9bd44561011b427d8901eec9c88e98a4.r2.dev/projetos/crm_maqgo.webp',
     hasHoverState: true,
+    url: 'https://crm.maqgo.com.br',
     description: 'Software de gestão de relacionamento com clientes (CRM) desenhado especificamente para revendedores de máquinas. Funcionalidades incluem gestão de funil de vendas (Kanban), automação de propostas comerciais em PDF, histórico de interações e integração direta com o WhatsApp API para agilizar o follow-up de leads.',
     technologies: ['React', 'Node.js', 'PostgreSQL', 'WhatsApp API', 'SaaS']
   },
@@ -83,6 +84,7 @@ export const projectsData: ProjectData[] = [
     category: 'Micro SaaS',
     image: 'https://pub-9bd44561011b427d8901eec9c88e98a4.r2.dev/projetos/erp_tatto.webp',
     hasHoverState: true,
+    url: 'https://erp.maqgo.com.br',
     description: 'Solução de gestão completa "All-in-One" para estúdios de tatuagem e body piercing. O sistema digitaliza toda a operação: agenda inteligente com lembretes automáticos, assinatura digital de termos de responsabilidade (anamnese), controle de estoque de tintas/agulhas e fluxo de caixa financeiro. Foco total em UX mobile para tatuadores.',
     technologies: ['Next.js', 'PWA', 'Stripe', 'Digital Signature', 'Firebase']
   },
@@ -92,6 +94,7 @@ export const projectsData: ProjectData[] = [
     category: 'Site Institucional',
     image: 'https://pub-9bd44561011b427d8901eec9c88e98a4.r2.dev/projetos/escavater.webp',
     hasHoverState: false,
+    url: 'https://escavater.com.br',
     description: 'Site institucional sólido para empresa de terraplanagem e demolição. Desenvolvido em WordPress para permitir fácil gerenciamento de conteúdo pelo cliente, mas com otimizações de performance e cache para garantir carregamento rápido. Estrutura focada em credibilidade e conversão de contatos comerciais.',
     technologies: ['WordPress', 'PHP', 'Elementor', 'SEO', 'CRO']
   },
@@ -101,6 +104,7 @@ export const projectsData: ProjectData[] = [
     category: 'Institucional Corporativo',
     image: 'https://pub-9bd44561011b427d8901eec9c88e98a4.r2.dev/projetos/kmw.webp',
     hasHoverState: false,
+    url: 'https://kmw.com.br',
     description: 'Portal corporativo para empresa de engenharia e montagem industrial. O projeto transmite autoridade e robustez técnica, essenciais para o setor B2B industrial. Conta com área de portfólio de grandes obras, certificações técnicas e conformidade com normas de segurança.',
     technologies: ['Next.js', 'Tailwind', 'Motion', 'B2B', 'Institucional']
   },
@@ -110,6 +114,7 @@ export const projectsData: ProjectData[] = [
     category: 'Marketplace Vertical',
     image: 'https://pub-9bd44561011b427d8901eec9c88e98a4.r2.dev/projetos/maqgo.webp',
     hasHoverState: true,
+    url: 'https://maqgo.com.br',
     description: 'Portal líder em compra e venda de equipamentos pesados usados. Diferente de classificados genéricos, o MaqGo oferece filtros técnicos específicos (horas de uso, ano, modelo). Desenvolvido com Next.js para máxima velocidade e indexação (SEO).',
     technologies: ['Next.js', 'Algolia', 'Vercel', 'Marketplace', 'SEO']
   },
@@ -128,6 +133,7 @@ export const projectsData: ProjectData[] = [
     category: 'Página de Produto (LP)',
     image: 'https://pub-9bd44561011b427d8901eec9c88e98a4.r2.dev/projetos/titan_ccmmaquinas.webp',
     hasHoverState: false,
+    url: 'https://titan.ccmmaquinas.com.br',
     description: 'Hotsite promocional para lançamento de linha de implementos rodoviários. Desenvolvimento "Hand-coded" utilizando HTML5 e CSS3 puro para performance máxima e liberdade criativa total, sem overhead de frameworks. Foco em vídeo e demonstração técnica do produto.',
     technologies: ['HTML5', 'CSS3', 'JavaScript', 'UI/UX', 'Video Optimization']
   },
@@ -137,6 +143,7 @@ export const projectsData: ProjectData[] = [
     category: 'Dashboard',
     image: 'https://pub-9bd44561011b427d8901eec9c88e98a4.r2.dev/projetos/crm_maqgo.png',
     hasHoverState: true,
+    url: 'https://crm.maqgo.com.br',
     description: 'Interface administrativa do ecossistema MaqGo CRM. Um painel intuitivo para visualização de métricas de vendas, gestão de equipe comercial e relatórios de desempenho. Design limpo focado na produtividade diária dos vendedores e gestores.',
     technologies: ['React', 'Recharts', 'Dashboard', 'Analytics', 'UX Research']
   }

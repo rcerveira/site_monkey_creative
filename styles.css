@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Critical styles to avoid white flash on load */
+:root {
+  --bg-dark: #0f0f0f;
+  --primary: #FFDE00;
+}
+
+body, html {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  background-color: #0f0f0f;
+}
+
+html.dark, html.dark body {
+  background-color: var(--bg-dark) !important;
+  color: white;
+}
+
+/* Lightweight CSS pattern for the hero background */
+.bg-banana-pattern {
+  background-image: radial-gradient(rgba(255, 222, 0, 0.05) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  html.custom-cursor,
+  html.custom-cursor body,
+  html.custom-cursor a,
+  html.custom-cursor button,
+  html.custom-cursor input,
+  html.custom-cursor textarea,
+  html.custom-cursor select,
+  html.custom-cursor label,
+  html.custom-cursor .cursor-pointer,
+  html.custom-cursor [role="button"] {
+    cursor: none !important;
+  }
+}
+
+@media (max-width: 768px), (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-marquee-reverse,
+  .animate-bounce,
+  .animate-float,
+  .animate-float-sm,
+  .animate-breathe,
+  .animate-spin-slow,
+  .animate-scrolling-bg,
+  .animate-slip,
+  .animate-slide-out,
+  .animate-slide-up {
+    animation: none !important;
+  }
+}
+
+.text-outline {
+  -webkit-text-stroke: 1px black;
+  color: transparent;
+}
+
+.dark .text-outline {
+  -webkit-text-stroke: 1px white;
+}
+
+/* Improve offscreen rendering on mobile */
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 800px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border: 2px solid #1e1e1e;
+  border-radius: 4px;
+}
+
+/* Mobile loading spinner */
+#root:empty::before {
+  content: "";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0 -20px;
+  border: 3px solid rgba(255, 222, 0, 0.2);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

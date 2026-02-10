@@ -7,7 +7,7 @@ const Services: React.FC = () => {
 
     return (
         <>
-            <section className="relative bg-black border-y-4 border-primary z-20 overflow-hidden whitespace-nowrap py-10 select-none">
+            <section className="cv-auto relative bg-black border-y-4 border-primary z-20 overflow-hidden whitespace-nowrap py-10 select-none">
                 <div className="flex animate-marquee">
                     {[0, 1].map((i) => (
                         <div key={i} className="flex items-center shrink-0">
@@ -22,7 +22,7 @@ const Services: React.FC = () => {
                 </div>
             </section>
 
-            <section className="py-24 bg-surface-light dark:bg-surface-dark relative z-10" id="services">
+            <section className="cv-auto py-24 bg-surface-light dark:bg-surface-dark relative z-10" id="services">
                 <div className="container mx-auto px-4">
                     <div className="flex flex-col md:flex-row justify-between items-end mb-16">
                         <div>

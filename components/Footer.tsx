@@ -50,11 +50,13 @@ const Footer: React.FC = () => {
     );
 
     return (
-        <footer className="bg-black text-white pt-24 pb-8 border-t border-gray-800 z-10 relative overflow-hidden">
+        <footer className="cv-auto bg-black text-white pt-24 pb-8 border-t border-gray-800 z-10 relative overflow-hidden">
             <div className="absolute bottom-0 right-0 opacity-10 pointer-events-none w-64 h-64">
                 <img 
                     src="https://pub-9bd44561011b427d8901eec9c88e98a4.r2.dev/path3.png" 
                     alt="Background Icon" 
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-contain animate-float rotate-12"
                 />
             </div>
