@@ -133,7 +133,50 @@ Você pode personalizar o template de email no EmailJS com:
 ✅ **Seguro:** A Public Key pode ser exposta no frontend
 ✅ **Limite de emails:** Plano gratuito tem 200 emails/mês
 ✅ **Proteção anti-spam:** EmailJS tem validações internas
-⚠️ **Recomendação:** Configure reCAPTCHA no EmailJS para maior proteção
+✅ **Cloudflare Turnstile:** Captcha integrado para proteção extra
+
+---
+
+## 🛡️ Configurar Cloudflare Turnstile (Captcha)
+
+O formulário já está integrado com o Cloudflare Turnstile para proteção contra bots.
+
+### Passo 1: Criar Site no Turnstile
+
+1. Acesse [Cloudflare Turnstile Dashboard](https://dash.cloudflare.com/?to=/:account/turnstile)
+2. Clique em **"Add Site"**
+3. Preencha:
+   - **Site name:** Monkey Creative (ou qualquer nome)
+   - **Domain:** Seu domínio (ex: `mnkcreative.com`)
+     - Para testes locais, adicione também `localhost`
+   - **Widget Mode:** Managed (recomendado)
+4. Clique em **"Create"**
+5. Copie a **Site Key** (chave pública)
+
+### Passo 2: Adicionar ao .env.local
+
+```env
+VITE_TURNSTILE_SITE_KEY=0x4AAAAAAxxxxxxxxxxxxx
+```
+
+### Passo 3: Deploy em Produção
+
+**Vercel:**
+- Adicione `VITE_TURNSTILE_SITE_KEY` nas Environment Variables
+
+**Coolify:**
+- Adicione `VITE_TURNSTILE_SITE_KEY` nas Environment Variables
+
+### Modo de Teste
+
+O Turnstile tem uma chave especial para testes que sempre passa:
+```
+1x00000000000000000000AA - Sempre aprova
+2x00000000000000000000AB - Sempre falha
+3x00000000000000000000FF - Força modo interativo
+```
+
+Use `1x00000000000000000000AA` no `.env.local` se quiser testar sem criar conta no Cloudflare.
 
 ---
 

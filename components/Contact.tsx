@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import emailjs from '@emailjs/browser';
+import { Turnstile } from '@marsidev/react-turnstile';
 import { useCursor } from '../hooks';
 
 const Contact: React.FC = () => {
@@ -11,6 +12,7 @@ const Contact: React.FC = () => {
     service: 'Website Institucional',
     message: ''
   });
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
@@ -26,6 +28,12 @@ const Contact: React.FC = () => {
     if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
       setFormState('error');
       setTimeout(() => setFormState('idle'), 3000);
+      return;
+    }
+
+    // Validação do Turnstile
+    if (!turnstileToken) {
+      alert('Por favor, complete a verificação de segurança.');
       return;
     }
 
@@ -47,6 +55,7 @@ const Contact: React.FC = () => {
       if (result.status === 200) {
         setFormState('success');
         setFormData({ name: '', email: '', service: 'Website Institucional', message: '' });
+        setTurnstileToken(null);
       } else {
         setFormState('error');
       }
@@ -208,6 +217,18 @@ const Contact: React.FC = () => {
                     onMouseLeave={defaultCursor}
                   ></textarea>
                 </div>
+                
+                {/* Cloudflare Turnstile */}
+                <div className="flex justify-center">
+                  <Turnstile
+                    siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY || '1x00000000000000000000AA'}
+                    onSuccess={(token) => setTurnstileToken(token)}
+                    onError={() => setTurnstileToken(null)}
+                    onExpire={() => setTurnstileToken(null)}
+                    theme="dark"
+                  />
+                </div>
+
                 <button
                   className="w-full bg-primary text-black font-display text-xl uppercase py-4 px-8 transition-all duration-300 mt-4 rounded-xl shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] flex items-center justify-center disabled:opacity-70 disabled:cursor-not-allowed"
                   type="submit"
